@@ -1,0 +1,132 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Roulette</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        /* Inline style for demo, move to style.css */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url("E:/A/RecipeRoulette/static/photoo.jpeg") no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        header {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .input-section {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .input-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin: 10px 0;
+        }
+
+        .form-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #ff5722;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #e64a19;
+        }
+
+        footer {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Recipe Roulette</h1>
+    </header>
+    <main>
+        <section class="input-section">
+            <h2>Enter Your Ingredients</h2>
+            <form action="/generate_recipes" method="POST">
+                <div class="form-columns">
+                    <div class="form-group">
+                        <label for="ingredient1">Ingredient 1:</label>
+                        <input type="text" id="ingredient1" name="ingredient1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ingredient2">Ingredient 2:</label>
+                        <input type="text" id="ingredient2" name="ingredient2">
+                    </div>
+                    <div class="form-group">
+                        <label for="ingredient3">Ingredient 3:</label>
+                        <input type="text" id="ingredient3" name="ingredient3">
+                    </div>
+                    <div class="form-group">
+                        <label for="ingredient4">Ingredient 4:</label>
+                        <input type="text" id="ingredient4" name="ingredient4">
+                    </div>
+                </div>
+                <button type="submit" class="btn">Find Recipes</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Recipe Roulette</p>
+    </footer>
+</body>
+</html>
+
