@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Results</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url("E:/A/RecipeRoulette/static/FINAL2.jpg") no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        header, footer {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .results-section {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .recipe-card {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #ff5722;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #e64a19;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Recipe Results</h1>
+    </header>
+    <main>
+        <section class="results-section">
+            <h2>Your Recipe Suggestions</h2>
+            <hr>
+            {% if recipes and recipes|length > 0 %}
+                {% for recipe in recipes %}
+                <div class="recipe-card">
+                    <h3>{{ recipe.name }}</h3>
+                    <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+                    <p><strong>Diet:</strong> {{ recipe.diet }}</p>
+                    <p><strong>Course:</strong> {{ recipe.course }}</p>
+                    <p><strong>Prep Time:</strong> {{ recipe.prep_time }} mins | <strong>Cook Time:</strong> {{ recipe.cook_time }} mins</p>
+                    <p><strong>Region:</strong> {{ recipe.region }} ({{ recipe.state }})</p>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>No recipes found. Try different ingredients!</p>
+            {% endif %}
+            <a href="/" class="btn">Back to Home</a>
+        </section

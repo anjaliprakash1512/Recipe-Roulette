@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Meal Plan</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url("E:/A/RecipeRoulette/static/photoo.jpeg") no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        header, footer {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .meal-plan-section {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .day-card {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #ff5722;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #e64a19;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Weekly Meal Plan</h1>
+    </header>
+    <main>
+        <section class="meal-plan-section">
+            <h2>Your Weekly Recipes</h2>
+            <hr>
+            {% for day, recipe in meal_plan.items() %}
+            <div class="day-card">
+                <h3>{{ day }}</h3>
+                <p><strong>Recipe:</strong> {{ recipe.name }}</p>
+                <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+                <p><strong>Diet:</strong> {{ recipe.diet }}</p>
+                <p><strong>Course:</strong> {{ recipe.course }}</p>
+                <p><strong>Prep Time:</strong> {{ recipe.prep_time }} mins | <strong>Cook Time:</strong> {{ recipe.cook_time }} mins</p>
+                <p><strong>Region:</strong> {{ recipe.region }} ({{ recipe.state }})</p>
+            </div>
+            {% endfor %}
+            <a href="/" class="btn">Back to Home</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Recipe Roulette</p>
+    </footer>
+</body>
+</html>
